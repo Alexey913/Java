@@ -5,7 +5,7 @@
 import java.util.Scanner;
 import java.lang.Math;
 import java.io.*;
-public class hw1_copy
+public class Main
 {
     public static void main(String[] args) {
 	    System.out.println ("Введите через пробел выражение для подсчета и нажмите Enter\n(Например, 2? + 7? = 69)");
@@ -33,19 +33,24 @@ public class hw1_copy
             return arrayNum;
         }
         else {
-            String [] arrayStr = new String [10*count];
-            for (int i = 0; i < 10*count; i++) {
+            int quant = (int) Math.pow(10, count);
+            String [] arrayStr = new String [quant];
+            for (int i = 0; i < quant; i++) {
                 arrayStr[i] = str;
             }
-            while (isNumeric(arrayStr[10*count-1]) != true) {
-                for (int i = 0; i < arr.length; i++) {
-                    if (arr[i].equals("?")) {
+            int count2 = count;
+            while (count2>0) {
+                for (int k = 0; k < arr.length; k++) {
+                    if (arr[k].equals("?")) {
                         for (int j = 0; j<10; j++) {
-                            char newChar = (char) j;
-                            System.out.println(arr[i]);
-                            arrayStr[count*j] = arrayStr[count*j].replace('?', newChar);
-                            System.out.println(arrayStr[count*j]);
+                            char newChar = (char) (j+'0');
+                            char[] chars = arrayStr[j+(int) Math.pow(10, k)].toCharArray();
+                            chars[k] = newChar;
+                            arrayStr[j+(int) Math.pow(10, k)] = String.valueOf(chars);
+                            // System.out.println(arr[i]);
+                            // System.out.println(arrayStr[count2*j]);
                         }
+                        count2--;
                     }
                 }
             }
