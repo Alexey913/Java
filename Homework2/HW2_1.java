@@ -33,11 +33,11 @@ public class HW2_1 {
         for (int i = 0; i < len; i++) {
             try {
                 array[i] = Integer.parseInt(stringArray[i]);
-                logging("Преобразование данных пользователя");
+                // logging("Преобразование данных пользователя");
             }
             catch (Exception e) {
                 System.out.printf("Вы ввели какую-то дичь для %d элемента. Я заменил его на 0\n", i+1);
-                logging("Ошибка преобразования данных пользователя. Замена на 0");
+                // logging("Ошибка преобразования данных пользователя. Замена на 0");
                 array[i] = 0;
             }
         }
