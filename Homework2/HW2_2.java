@@ -1,7 +1,20 @@
+import java.io.IOException;
 import java.util.Scanner;
-public class HW2_2
-{
-    public static void main(String[] args) {
+import java.util.logging.*;
+
+public class HW2_2 {
+    private static Logger log = Logger.getLogger(HW2_2.class.getName());
+
+	public static void main(String[] args) throws SecurityException, IOException {
+
+    Handler fh  = null;
+    fh = new FileHandler("HW2_2.txt" + "run.log",  1000000, 1, true);
+    // log.addHandler(fh);
+    SimpleFormatter sFormat = new SimpleFormatter();
+    fh.setFormatter(sFormat);
+    
+    log.log(Level.INFO, "Запуск калькулятора \n");
+    
     int excep = 0;
     while (excep == 0) {
         try{
@@ -9,22 +22,32 @@ public class HW2_2
         }
         catch (NumberFormatException e) {
             System.out.println ("Ошибка ввода! Повторите! \n");
+            log.log(Level.WARNING, "Ошибка ввода! Неверный формат!\n");
         }
         catch (ArrayIndexOutOfBoundsException e) {
             System.out.println ("Ошибка ввода! Повторите! \n");
+            log.log(Level.WARNING, "Ошибка ввода! Неверное число элементов!\n");
         }
     }
 }
         
-	static String[] inputData() {
+	static String[] inputData() throws SecurityException, IOException {
 	    System.out.println ("Введите через пробел выражение для подсчета и нажмите Enter\n(Например, 8.5 + 10)");
 	    Scanner enterData = new Scanner(System.in);
-            String data = enterData.nextLine();
-            String [] data_elem = data.split(" ");
-            return data_elem;
+        String data = enterData.nextLine();
+        String [] data_elem = data.split(" ");
+        
+        // Logger log = Logger.getLogger(HW2_1.class.getName());
+        FileHandler fh = new FileHandler("HW2_2.txt" + "run.log", 1000000, 1, true);
+        log.addHandler(fh);
+        SimpleFormatter sFormat = new SimpleFormatter();
+        fh.setFormatter(sFormat);
+            
+        log.log(Level.INFO, "Введено значение " + data + "\n");
+        return data_elem;
 	}
 	
-	static int calculator (float numOne, float numTwo, String symbol) {
+	static int calculator (float numOne, float numTwo, String symbol) throws SecurityException, IOException {
 	    switch (symbol) {
             case "+":
                 System.out.printf ("Сумма чисел %f и %f равна %f", numOne,numTwo, numOne+numTwo);
@@ -75,7 +98,7 @@ public class HW2_2
 	}
 	
 	
-	static int main_menu() {
+	static int main_menu() throws SecurityException, IOException {
     	String [] elements = inputData();
         while (elements.length>3) {
             System.out.printf ("Ошибка ввода! Повторите! \n");
@@ -88,7 +111,7 @@ public class HW2_2
 	}
 	
 	
-	static int repeat_operation (String answ, float numOne, float numTwo) {
+	static int repeat_operation (String answ, float numOne, float numTwo) throws SecurityException, IOException {
     switch (answ) {
         case "1":
             System.out.println ("Какое действие будем использовать?\nВведите одно из предложенных действий\n+ - * / % ^\n");

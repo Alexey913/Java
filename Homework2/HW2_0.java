@@ -14,7 +14,7 @@ import java.util.Scanner;
 //        Студент Краснов получил 5 по предмету Физика.
 public class HW2_0 {
     public static void main(String[] args) {
-        try(FileReader fr =new FileReader("students.json"))
+        try(FileReader fr = new FileReader("students.json"))
         {
             Scanner data =new Scanner(fr);
             String json = data.nextLine();
