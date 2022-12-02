@@ -2,9 +2,9 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.*;
 
-public class Main {
+public class HW2_2 {
     
-    private static Logger log = Logger.getLogger(Main.class.getName());
+    private static Logger log = Logger.getLogger(HW2_2.class.getName());
     
     public static void loging (int switcher, String msg) throws SecurityException, IOException {
         
