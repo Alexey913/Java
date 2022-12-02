@@ -1,28 +1,34 @@
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.*;
 
 public class HW2_2 {
     
-    private static Logger log = Logger.getLogger(HW2_2.class.getName());
+    static Logger log;
     
     public static void loging (int switcher, String msg) throws SecurityException, IOException {
 
-        Handler fh  = null;
-        fh = new FileHandler("HW2_2.txt" + "run.log",  1000000, 1, true);
-        log.addHandler(fh);
-        SimpleFormatter sFormat = new SimpleFormatter();
-        fh.setFormatter(sFormat);
-        switch(switcher)
-            {
-            case 1:
-                log.log(Level.INFO, msg);
-                break;
-            case 2:
-                log.log(Level.WARNING, msg);
-                break;
-	    }
-        fh.close();
+        try (FileInputStream ins = new FileInputStream("log.config")){
+            LogManager.getLogManager().readConfiguration(ins);
+            log = Logger.getLogger(HW2_2.class.getName());
+            Handler fh  = null;
+            fh = new FileHandler("HW2_2.txt" + "run.log",  1000000, 1);
+            log.addHandler(fh);
+            switch(switcher)
+                {
+                case 1:
+                    log.log(Level.INFO, msg);
+                    break;
+                case 2:
+                    log.log(Level.WARNING, msg);
+                    break;
+            }
+            fh.close();
+        }
+        catch (Exception ignore){
+            ignore.printStackTrace();
+        }
     }
 
 	public static void main(String[] args) throws SecurityException, IOException {
@@ -33,18 +39,18 @@ public class HW2_2 {
             excep = main_menu();
         }
         catch (NumberFormatException e) {
-            System.out.println ("\tОшибка ввода! Повторите! >>>\n");
+            System.out.println ("Ошибка ввода! Повторите! >>>\n");
             loging (2, "Ошибка ввода! Неверный формат!\n");
         }
         catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println ("\tОшибка ввода! Повторите! >>>\n");
+            System.out.println ("Ошибка ввода! Повторите! >>>\n");
             loging (2, "Ошибка ввода! Неверное число элементов!\n");
         }
     }
 }
 
 	static String[] inputData() throws SecurityException, IOException {
-	    System.out.println ("\t Введите через пробел выражение для подсчета и нажмите Enter\n\t(Например, 8.5 + 10) >>>");
+	    System.out.println (" Введите через пробел выражение для подсчета и нажмите Enter\n(Например, 8.5 + 10) >>>");
 	    Scanner enterData = new Scanner(System.in);
         String data = enterData.nextLine();
         System.out.println();
@@ -57,33 +63,33 @@ public class HW2_2 {
 	    switch (symbol) {
             case "+":
                 loging (1,  "Запуск операции сложения\n");
-                System.out.printf ("\tСумма чисел %f и %f равна %f\n\n", numOne,numTwo, numOne+numTwo);
+                System.out.printf ("Сумма чисел %f и %f равна %f\n\n", numOne,numTwo, numOne+numTwo);
                 loging (1,  "Успешное сложение\n");
                 break;
             case "-":
                 loging (1,  "Запуск операции вычитания\n");
-                System.out.printf ("\tРазность чисел %f и %f равна %f\n\n", numOne,numTwo, numOne-numTwo);
+                System.out.printf ("Разность чисел %f и %f равна %f\n\n", numOne,numTwo, numOne-numTwo);
                 loging (1,  "Успешное вычитание\n");
                 break;
             case "*":
                 loging (1,  "Запуск операции умножения\n");
-                System.out.printf ("\tПроизведение чисел %f и %f равно %f\n\n", numOne,numTwo, numOne*numTwo);
+                System.out.printf ("Произведение чисел %f и %f равно %f\n\n", numOne,numTwo, numOne*numTwo);
                 loging (1,  "Успешное умножение\n");
                 break;
             case "/":
                 if (numTwo != 0) {
                     loging (1,  "Запуск операции деления\n");
-                    System.out.printf ("\tЧастное %f и %f равно %f\n\n", numOne,numTwo, numOne/numTwo);
+                    System.out.printf ("Частное %f и %f равно %f\n\n", numOne,numTwo, numOne/numTwo);
                     loging (1,  "Успешное деление\n");
                 }
                 else {
                     loging (2,  "Ошибка запуска операции деления - деление на 0!\n");
-                    System.out.println ("\tОшибка! На 0 делить нельзя!\n\n");
+                    System.out.println ("Ошибка! На 0 делить нельзя!\n\n");
                 }
                 break;
             case "%":
                 loging (1,  "Запуск нахождения остатка от деления\n");
-                System.out.printf ("\tОстаток от деления числа %f на число %f равно %f\n\n", numOne,numTwo, numOne%numTwo);
+                System.out.printf ("Остаток от деления числа %f на число %f равно %f\n\n", numOne,numTwo, numOne%numTwo);
                 break;
             case "^":
                 float result = numOne;
@@ -97,20 +103,20 @@ public class HW2_2 {
                         result = 1/result;
                     }
                     if (numTwo == 0) result = 1;
-                    System.out.printf ("\tЧисло %f в степени %f равно %f\n\n", numOne,numTwo, result);
+                    System.out.printf ("Число %f в степени %f равно %f\n\n", numOne,numTwo, result);
                     loging (1,  "Успешное возведение в степень\n");
                 }
                 else {
                     loging (2,  "Ошибка запуска операции возведения в степень - степень не является целым числом!\n");
-                    System.out.println ("\tОшибка! Степень должна быть целым числом!\n\n");
+                    System.out.println ("Ошибка! Степень должна быть целым числом!\n\n");
                 }
                 break;
             default:
                 loging (2,  "Ошибка выбора действия. Действия " + symbol + " не предусмотрено!\n");
-                System.out.print ("\tЯ не знаю такого действия!\n\n");
+                System.out.print ("Я не знаю такого действия!\n\n");
                 break;
 	    }
-        System.out.printf ("\tЖелаете еще что-нибудь посчитать? >>>\n\t\t1 - Повторить операцию с числами %f и %f\n\t\t2 - Выполнить новую операцию\n\t\t3 - Выход\n\n", numOne, numTwo);
+        System.out.printf ("Желаете еще что-нибудь посчитать? >>>\n1 - Повторить операцию с числами %f и %f\n2 - Выполнить новую операцию\n3 - Выход\n\n", numOne, numTwo);
         Scanner answer = new Scanner(System.in);
         loging (1,  "Запрос нового действия\n");
         String user_answ = answer.nextLine();
@@ -122,7 +128,7 @@ public class HW2_2 {
 	static int main_menu() throws SecurityException, IOException {
     	String [] elements = inputData();
         while (elements.length>3) {
-            System.out.printf ("\tОшибка ввода! Повторите! >>>\n");
+            System.out.printf ("Ошибка ввода! Повторите! >>>\n");
             elements = inputData();
         }
         float num_1 = Float.parseFloat (elements[0]);
@@ -136,7 +142,7 @@ public class HW2_2 {
     switch (answ) {
         case "1":
             loging (1, "Предложение выбора действия с числами\n" + numOne + " и "+ numTwo);
-            System.out.println ("\tКакое действие будем использовать?\nВведите одно из предложенных действий >>>\n\n\t\t+ - * / % ^\n");
+            System.out.println ("Какое действие будем использовать?\nВведите одно из предложенных действий >>>\n\n+ - * / % ^\n");
             Scanner act = new Scanner(System.in);
             System.out.println ();
             String action = act.nextLine();
@@ -149,11 +155,11 @@ public class HW2_2 {
             return excep;
         case "3":
             loging (1, "Выход по команде пользователя\n");
-            System.out.println ("\tПриходите еще!");
+            System.out.println ("Приходите еще!");
             return 1;
 	    default:
 	        loging (2, "Выход в результате неверного ввода пользователя\n");
-	        System.out.println ("\tНе понял Вас. Давайте попробуем в следующий раз!");
+	        System.out.println ("Не понял Вас. Давайте попробуем в следующий раз!");
 	        return 1;
         }
 	}
