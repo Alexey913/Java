@@ -14,7 +14,7 @@ import java.util.Scanner;
 import java.lang.*;
 
 
-public class Main {
+public class HW2_0 {
     public static void main(String[] args) {
         try(FileReader fr = new FileReader("HW2_0.json"))
         {
