@@ -1,0 +1,117 @@
+Dec 02, 2022 12:20:02 PM Main loging
+INFO: Запуск программы
+
+Dec 02, 2022 12:20:06 PM Main loging
+INFO: Введено значение для подсчёта 5
+
+Dec 02, 2022 12:20:06 PM Main loging
+WARNING: Ошибка ввода! Неверное число элементов!
+
+Dec 02, 2022 12:20:11 PM Main loging
+INFO: Введено значение для подсчёта 1 + 2
+
+Dec 02, 2022 12:20:11 PM Main loging
+INFO: Запуск операции сложения
+
+Dec 02, 2022 12:20:11 PM Main loging
+INFO: Успешное сложение
+
+Dec 02, 2022 12:20:11 PM Main loging
+INFO: Запрос нового действия
+
+Dec 02, 2022 12:22:41 PM Main loging
+INFO: Запуск программы
+
+Dec 02, 2022 12:22:48 PM Main loging
+INFO: Введено значение для подсчёта 1 + 2
+
+Dec 02, 2022 12:22:48 PM Main loging
+INFO: Запуск операции сложения
+
+Dec 02, 2022 12:22:48 PM Main loging
+INFO: Успешное сложение
+
+Dec 02, 2022 12:22:48 PM Main loging
+INFO: Запрос нового действия
+
+Dec 02, 2022 12:23:45 PM Main loging
+INFO: Запуск программы
+
+Dec 02, 2022 12:23:48 PM Main loging
+INFO: Введено значение для подсчёта 1 + 2
+
+Dec 02, 2022 12:23:48 PM Main loging
+INFO: Запуск операции сложения
+
+Dec 02, 2022 12:23:48 PM Main loging
+INFO: Успешное сложение
+
+Dec 02, 2022 12:23:48 PM Main loging
+INFO: Запрос нового действия
+
+Dec 02, 2022 12:25:37 PM Main loging
+INFO: Запуск программы
+
+Dec 02, 2022 12:29:24 PM Main loging
+INFO: Запуск программы
+
+Dec 02, 2022 12:29:32 PM Main loging
+INFO: Введено значение для подсчёта 1 + 2
+
+Dec 02, 2022 12:29:32 PM Main loging
+INFO: Запуск операции сложения
+
+Dec 02, 2022 12:29:32 PM Main loging
+INFO: Успешное сложение
+
+Dec 02, 2022 12:29:32 PM Main loging
+INFO: Запрос нового действия
+
+Dec 02, 2022 12:30:01 PM Main loging
+INFO: Выход по команде пользователя
+
+Dec 02, 2022 12:30:26 PM Main loging
+INFO: Запуск программы
+
+Dec 02, 2022 12:30:31 PM Main loging
+INFO: Введено значение для подсчёта 1 + 2
+
+Dec 02, 2022 12:30:31 PM Main loging
+INFO: Запуск операции сложения
+
+Dec 02, 2022 12:30:31 PM Main loging
+INFO: Успешное сложение
+
+Dec 02, 2022 12:30:31 PM Main loging
+INFO: Запрос нового действия
+
+Dec 02, 2022 12:30:36 PM Main loging
+INFO: Предложение выбора действия с числами
+1.0 и 2.0
+Dec 02, 2022 12:30:39 PM Main loging
+INFO: Повторная операция с числами
+1.0 и 2.0 - -
+Dec 02, 2022 12:30:39 PM Main loging
+INFO: Запуск операции вычитания
+
+Dec 02, 2022 12:30:39 PM Main loging
+INFO: Успешное вычитание
+
+Dec 02, 2022 12:30:39 PM Main loging
+INFO: Запрос нового действия
+
+Dec 02, 2022 12:30:41 PM Main loging
+INFO: Новый ввод данных
+
+Dec 02, 2022 12:30:44 PM Main loging
+INFO: Введено значение для подсчёта 1 0 0
+
+Dec 02, 2022 12:30:44 PM Main loging
+WARNING: Ошибка выбора действия. Действия 0 не предусмотрено!
+
+Dec 02, 2022 12:30:44 PM Main loging
+INFO: Запрос нового действия
+
+Dec 02, 2022 12:30:49 PM Main loging
+WARNING: Выход в результате неверного ввода пользователя
+
