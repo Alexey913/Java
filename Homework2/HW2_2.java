@@ -7,7 +7,7 @@ public class HW2_2 {
     private static Logger log = Logger.getLogger(HW2_2.class.getName());
     
     public static void loging (int switcher, String msg) throws SecurityException, IOException {
-        
+
         Handler fh  = null;
         fh = new FileHandler("HW2_2.txt" + "run.log",  1000000, 1, true);
         log.addHandler(fh);
