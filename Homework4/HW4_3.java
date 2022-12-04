@@ -63,3 +63,67 @@ public class HW4_3 {
         System.out.println(result);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// /* Написать программу, определяющую правильность расстановки скобок в выражении.
+
+// a+(d*3) - истина
+// \[a+(1*3) - ложь
+// \[6+(3*3)] - истина
+// {a}\[+\]{(d*3)} - истина
+// <{a}+{(d*3)}> - истина
+// {a+]}{(d*3)} - ложь */
+
+
+// import java.util.HashMap;
+// import java.util.Map;
+// import java.util.Scanner;
+// import java.util.Stack;
+
+// public class HW4_3 {
+//     public static void main(String[] args) {
+//         Stack <String> inList = new Stack<>();
+//         System.out.println("Введите выражение для проверки:");
+//         Scanner sc = new Scanner(System.in);
+//         String [] toSymb = sc.nextLine().split("");
+//         String [] symbols = new String [] {"(", "[", "{", "<", ")", "]", "}", ">"};
+//         Map <String, Integer> check = new HashMap<>();
+//         for (int i = 0; i < symbols.length; i++) {
+//             check.put(symbols[i], 0);
+//         }
+//         boolean result = true;
+//         for (int i = 0; i < toSymb.length; i++) {
+//             inList.add(toSymb[i]);
+//         }
+//         while (!inList.isEmpty()) {
+//             for (int i = 0; i < symbols.length/2; i++) {
+//                 if (inList.firstElement().equals(symbols[i])) {
+//                     check.put(symbols[i], check.get(symbols[i])+1);
+//                 }
+//                 else if (inList.firstElement().equals(symbols[i+symbols.length/2])) {
+//                     check.put(symbols[i+symbols.length/2], check.get(symbols[i+symbols.length/2])+1);
+//                 }
+//             }
+//             System.out.println(check);
+//             inList.remove(inList.firstElement());
+//         }
+//     }
+// }
