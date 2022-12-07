@@ -12,8 +12,9 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.HashMap;
+import java.lang.Math;;
 
-public class Main {
+public class HW {
     public static void main(String[] args) {
         Deque <String> open = new LinkedList <> ();
         Deque <String> close = new LinkedList <> ();
@@ -46,23 +47,30 @@ public class Main {
             result = false;
         }
         else {
-            for (int i = 0; i < inputDsta.length; i++) {
-            if (checkOpen.containsKey(inputDsta[i])) {
-                open.addLast(inputDsta[i]);
-            }
-            else if (checkClose.containsKey(inputDsta[i])) {
-                close.addFirst(inputDsta[i]);
-            }
-                if (checkOpen.get(open.getFirst())==checkClose.get(close.getFirst())) {
-                    open.pollFirst();
-                    close.pollLast();
-                }
-            }
+            
+            for (int i = 0; i < inputDsta.length-1; i++) {
+
         }
-        
-        
-        System.out.println(count);
-        System.out.println(open);
-        System.out.println(close);
+    //     else {
+
+    //         for (int i = 1; i < inputDsta.length; i++) {
+    //         if (checkOpen.containsKey(inputDsta[i])) {
+    //             open.addLast(inputDsta[i]);
+    //         }
+    //         else if (checkClose.containsKey(inputDsta[i])) {
+    //             close.addLast(inputDsta[i]);
+    //             if (checkOpen.get(open.getLast())==checkClose.get(close.getFirst())) {
+    //                 // open.pollLast();
+    //                 // close.pollFirst();
+    //                 System.out.println(open);
+    //                 System.out.println(close);
+    //             }
+    //         }
+    //         }
+    //     }
+    // System.out.println(count);
+    // System.out.println(open);
+    // System.out.println(close);
+    // System.out.println(result);
     }
 }
