@@ -8,11 +8,9 @@ a+(d*3) - истина
 
 
 import java.util.Scanner;
-import java.util.Deque;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.HashMap;
-import java.lang.Math;;
 
 public class Main {
     public static void main (String[] args) {
@@ -29,7 +27,7 @@ public class Main {
         String [] symbols = new String [] {"(", "[", "{", "<", ")", "]", "}", ">"};
         int size = symbols.length/2;
         
-        ArrayList <String> input = new ArrayList <> ();
+        LinkedList <String> input = new LinkedList <> ();
         for (int i = 0; i < inputData.length; i++) {
             for (int j = 0; j < size*2; j++) {
                 if (inputData[i].equals(symbols[j])) {
