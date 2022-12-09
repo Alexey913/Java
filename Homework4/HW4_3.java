@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.HashMap;
 
-public class Main {
+public class HW4_3 {
     public static void main (String[] args) {
         System.out.println("Введите выражение для проверки:");
         Scanner sc = new Scanner(System.in);
