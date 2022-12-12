@@ -86,3 +86,70 @@ public class HW5_4 {
         showBoard(setQueens());
     }
 }
+
+
+
+
+
+
+
+public class Main {
+	
+	public static void main(String[] args) {
+		int[][] arr = new int[8][8];
+		queens(0,arr);
+	}
+	
+	private static void queens(int row, int[][] arr) {
+	    
+		if (row == 8){
+		    System.out.println();
+			for (int i = 0; i < arr.length; i++) {
+				for (int j = 0; j < arr[i].length; j++) {
+					System.out.print(arr[i][j]+" ");
+				}
+				System.out.println();
+			}
+		}
+		else {
+			int[][] newArr = new int[8][8];
+			for (int i = 0; i < arr.length; i++) {
+				for ( int j = 0; j < arr[i].length; j++) {
+					newArr[i][j] = arr[i][j];
+				}
+			}
+			for (int col = 0; col < 8; col++) {
+				if (noDangerous (row, col, newArr)) {
+					for (int c = 0; c < 8; c++) {
+						newArr[row][c] = 0;
+					}
+					newArr[row][col] = 1;
+					queens(row+1, newArr);
+				}
+			}
+		}	
+	}
+	
+	private static boolean noDangerous(int row, int col, int[][] newArr) {
+
+		for (int r = row-1; r >= 0; r--) {
+			if (newArr[r][col] == 1) {
+				return false;
+			}
+		}
+
+		for (int r = row-1, c = col-1; r>=0 && c>=0; r--, c--) {
+			if (newArr[r][c] == 1) {
+				return false;
+			}
+		}
+
+		for(int r = row-1, c = col+1; r>=0 && c<8; r--, c++) {
+			if(newArr[r][c] == 1) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+}
