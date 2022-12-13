@@ -37,9 +37,7 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		String inputData = sc.nextLine();
         String [] value = inputData.split("");
-
         int a = 8-Integer.parseInt(value[1]);
-        
         int b = 0;
         if (letters.containsKey(value[0])) {
             b = letters.get(value[0]);
@@ -48,12 +46,10 @@ public class Main {
             System.out.println("Ошибка ввода!");
         }
         System.out.println("Возможные комбинации расстановки ферзей при постановке первого ферзя на поле " + inputData);
-        
 		queens(0,arr, a, b);
 	}
 	
 	private static void queens(int row, int[][] arr, int a, int b) {
-
 		if (row == 8 && arr[a][b]==1){
 		    System.out.println();
 			for (int i = 0; i < arr.length; i++) {
@@ -83,25 +79,21 @@ public class Main {
 	}	
 	
 	private static boolean noDangerous(int row, int col, int[][] newArr) {
-
 		for (int r = row-1; r >= 0; r--) {
 			if (newArr[r][col] == 1) {
 				return false;
 			}
 		}
-
 		for (int r = row-1, c = col-1; r>=0 && c>=0; r--, c--) {
 			if (newArr[r][c] == 1) {
 				return false;
 			}
 		}
-
 		for(int r = row-1, c = col+1; r>=0 && c<8; r--, c++) {
 			if(newArr[r][c] == 1) {
 				return false;
 			}
 		}
-		
 		return true;
 	}
 }
