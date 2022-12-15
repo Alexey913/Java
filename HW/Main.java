@@ -20,11 +20,12 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        // System.out.println(setNote());
-        printParam();
+        Set <Notebooks> setNote = createSetNote();
+        Map <Integer, String> filters = new HashMap <> ();
+        printParam(filters);
     }
     
-    public static Set <Notebooks> setNote () {
+    public static Set <Notebooks> createSetNote () {
         
         //Массивы для заполнения характеристик ноутбуков
         String [] names = new String [] {"HP", "MSI", "Lenovo", "Acer", "Asus", "Samsung", "Apple"};
@@ -48,8 +49,9 @@ public class Main {
         return notes;
     }
     
-    public static void printParam () {
-        Map <Integer, String> param = new HashMap <> ();
+    
+    //Метод для вывода списка параметров
+    public static void printParam (Map <Integer, String> filters) {
         Map <Integer, String> param = new HashMap <> ();
         param.put (1, "Марка ноутбука");
         param.put (2, "Оперативная память");
@@ -60,13 +62,61 @@ public class Main {
         System.out.println("Введите номер необходимого критерия. Для продолжения введите 0");
         for (var elem : param.entrySet()) {
         System.out.println(elem.getKey() + " - " + elem.getValue());
-        int answer = inputData();
+        }
+        formFilters(filters);
+    }
+    
+    
+    //Метод для формирования перечня фильтров
+    public static Map <Integer, String> formFilters(Map <Integer, String> filters) {
+        int answer = inputDataInt();
         switch (answer){
             case 1:
-            System.out.println("Введите марку ноутбука: ");    
+                System.out.println("Введите марку ноутбука: ");
+                String filterName = inputDataString();
+                filters.put (1, filterName);
+                printParam(filters);
+                break;
+            case 2:
+                System.out.println("Введите объем оперативной памяти: ");
+                int filterRam = inputDataInt();
+                filters.put (2, String.valueOf(filterRam));
+                printParam(filters);
+                break;
+            case 3:
+                System.out.println("Введите объем жесткого диска: ");
+                int filterHdd = inputDataInt();
+                filters.put (3, String.valueOf(filterHdd));
+                printParam(filters);
+                break;
+            case 4:
+                System.out.println("Введите опреационную систему: ");
+                String filterSystem = inputDataString();
+                filters.put (4, filterSystem);
+                printParam(filters);
+                break;
+            case 5:
+                System.out.println("Введите размер монитора: ");
+                String filterMonitor = inputDataString();
+                filters.put (5, filterMonitor);
+                printParam(filters);
+                break;
+            case 6:
+                System.out.println("Введите цвет ноутбука: ");
+                String filterColor = inputDataString();
+                filters.put (6, filterColor);
+                printParam(filters);
+                break;
+            case 0:
+                return filters;
+            default:
+                System.out.printf ("Ошибка ввода! Повторите ввод!\n");
+                inputDataInt();
+                break;
         }
-        }
+        return filters;
     }
+    
     
     public static int inputDataInt () {
         Scanner enterNum = new Scanner(System.in);
@@ -83,7 +133,7 @@ public class Main {
     
     public static String inputDataString () {
         Scanner enterData = new Scanner(System.in);
-        int data = enterData.nextLine();
+        String data = enterData.nextLine();
         return data;
 	}
 }
