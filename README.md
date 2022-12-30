@@ -39,6 +39,7 @@ Create и read операции реализуются путем вызова u
 
 
 ## Домашнее задание (семинар 2)
+  
 1. Создать класс StudentGroup, содержащая в себе поля Teacher и список студентов.
 2. Создать класс StudentGroupServiceImpl, в котором реализована логика чтения Студентов и Преподавателя из файла txt
 (реализация чтения файла опциональна), создания класса StudentGroup и возвращения его.
@@ -76,9 +77,41 @@ Create и read операции реализуются путем вызова u
 4. Модифицировать класс Controller, добавив в него метод сортировки списка студентов по ФИО и вызывать в нем созданный метод из StudentGroupServiceImpl
 
 
-## Домашнее задание (семинар 3)
-1. Создать класс GroupStream, содержащий в себе список StudentGroup и реализующий интерфейс Iterable<StudentGroup>
-2. Создать класс GroupStreamComparator<GroupStream>, реализующий сравнение количества групп входящих в GroupStream
-3. Создать класс GroupStreamServiceImpl, добавив в него метод сортировки списка потоков, используя созданный GroupStreamComparator
-4. Модифицировать класс Controller, добавив в него созданный сервис
-5. Модифицировать класс Controller, добавив в него метод, сортирующий список потоков, путем вызова созданного сервиса
+## Семинар 4
+
+**Задача 1**
+  
+* Создать пекедж repository. Дальнейшие работы ведем в нем
+* Реализовать в нем интерфейс Repository<E,I>
+* Задать в созданном интерфейсе 2 абстрактных метода:
+E save(E entity)
+E findById (I id)
+* Создать класс GroupRepository, имплементировав его от Repository
+
+**Задача 2**
+
+* Создать класс GroupRepository имплементировав его от Repository<Group, Integer>
+* В классе StudentGroupServiceImpl добавить новую переменную Repository<Group, Integer>
+* В классе StudentGroupServiceImpl  реализовать методы сохранения группы и поиска её по номеру 
+
+**Задача 3**
+
+* Создать интерфейс UserRepository<E  extends User,I> унаследовав его от Repository<E, I>
+* В интерфейс UserRepository<E,I> задать абстрактный метод E findByFio (String fio)
+* Создать класc StudentRepository имплементировав интерфейс UserRepository
+ 
+**Задача 4**
+  
+* Создать класc StudentRepository имплементировав интерфейс UserRepository <Student, Integer>
+* В классе StudentService добавить новую переменную StudentRepository 
+* В классе StudentService  реализовать методы сохранения студента и его поиска по id и ФИО.
+
+  
+## Домашнее задание (семинар 4)
+  
+1. Реализовать класc TeacherRepository (обобщение на ваше усмотрение)
+2. Обобщить интерфейс DataService, чтобы он работал только с наследникам класса User
+3. Реализовать методы поиска и сохранения в классе TeacherService
+4. Реализовать как можно более обобщенный интерфейс Controller
+5. Создать классы StudentController, TeacherController, GroupController с методами сохранения и поиска соответствующих объектов
+* Реализовать такой же функционал для класса GroupStream
