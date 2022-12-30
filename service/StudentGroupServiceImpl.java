@@ -11,6 +11,7 @@ import data.Teacher;
 import data.comparator.UserComparator;
 import repository.Repository;
 import util.ReaderFromTxt;
+import util.WriterToTxt;
 
 public class StudentGroupServiceImpl implements StudentGroupService {
 
@@ -32,6 +33,12 @@ public class StudentGroupServiceImpl implements StudentGroupService {
         Teacher teacher = ReaderFromTxt.readTeacher();
         List<Student> listOfStudents = ReaderFromTxt.readStudents();
         StudentGroup studentGroup = new StudentGroup(teacher, listOfStudents, groupNumber);
+        return studentGroup;
+    }
+
+    @Override
+    public StudentGroup create(StudentGroup studentGroup) {
+        WriterToTxt.writeStudentGroup(studentGroup);
         return studentGroup;
     }
 
