@@ -37,9 +37,8 @@ public class StudentGroupServiceImpl implements StudentGroupService {
     }
 
     @Override
-    public StudentGroup create(StudentGroup studentGroup) {
+    public void create(StudentGroup studentGroup) {
         WriterToTxt.writeStudentGroup(studentGroup);
-        return studentGroup;
     }
 
     @Override
