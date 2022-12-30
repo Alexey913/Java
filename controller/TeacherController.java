@@ -16,7 +16,6 @@ public class TeacherController implements UserController<Teacher, Integer> {
         return teacherServiceImpl.read(entity);
     }
 
-    @Override
     public Teacher create(Teacher entity) {
         teacherServiceImpl.create(entity);
         teacherServiceImpl.read(entity);

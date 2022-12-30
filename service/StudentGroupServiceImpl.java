@@ -36,12 +36,6 @@ public class StudentGroupServiceImpl implements StudentGroupService {
     }
 
     @Override
-    public StudentGroup create(StudentGroup studentGroup) {
-
-        return studentGroup;
-    }
-
-    @Override
     public void removeStudent(String fio) {
         Iterator<Student> studentGroup = read().iterator();
         while (studentGroup.hasNext()) {

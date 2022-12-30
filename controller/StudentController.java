@@ -16,7 +16,6 @@ public class StudentController implements UserController<Student, Integer> {
         return studentServiceImpl.read(entity);
     }
 
-    @Override
     public Student create(Student entity) {
         studentServiceImpl.create(entity);
         studentServiceImpl.read(entity);

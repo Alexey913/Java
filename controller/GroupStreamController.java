@@ -14,11 +14,6 @@ public class GroupStreamController implements Controller<GroupStream, Integer> {
     }
 
     @Override
-    public GroupStream create(GroupStream entity) {
-        return this.groupStreamServiceImpl.createGroupStream(entity);
-    }
-
-    @Override
     public GroupStream save(GroupStream entity) {
         return this.groupStreamServiceImpl.saveGroupStream(entity);
     }

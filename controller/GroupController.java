@@ -12,11 +12,6 @@ public class GroupController implements Controller<StudentGroup, Integer> {
     }
 
     @Override
-    public StudentGroup create(StudentGroup entity) {
-        return studentGroupServiceImpl.create(entity);
-    }
-
-    @Override
     public StudentGroup save(StudentGroup entity) {
         return studentGroupServiceImpl.saveGroup(entity);
     }

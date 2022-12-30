@@ -6,8 +6,6 @@ public interface StudentGroupService {
 
     StudentGroup read();
 
-    StudentGroup create(StudentGroup studentGroup);
-
     void removeStudent(String fio);
 
     void sortByYear(StudentGroup studentGroup);
