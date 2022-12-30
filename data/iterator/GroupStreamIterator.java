@@ -1,8 +1,3 @@
-// Д/З Семинар 3
-// Создать класс GroupStream, содержащий в себе список StudentGroup
-// и реализующий интерфейс Iterable<StudentGroup>
-
-
 package data.iterator;
 
 import java.util.Iterator;
@@ -10,12 +5,12 @@ import java.util.List;
 
 import data.StudentGroup;
 
-public class GroupStreamIterator implements Iterator <StudentGroup> {
+public class GroupStreamIterator implements Iterator<StudentGroup> {
 
-    private List <StudentGroup> groupStream;
+    private List<StudentGroup> groupStream;
     private int cursor;
 
-    public GroupStreamIterator(List <StudentGroup> groupStream) {
+    public GroupStreamIterator(List<StudentGroup> groupStream) {
         this.groupStream = groupStream;
     }
 
